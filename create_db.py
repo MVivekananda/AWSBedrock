@@ -16,14 +16,13 @@ aws_profile_name = "aws-profile-name"
 region_name = "region-name"
 model_name="amazon.titan-embed-text-v2:0"
 
+# +++ NEW +++
 def get_embedding_function():
     embeddings = BedrockEmbeddings(
-        credentials_profile_name=aws_profile_name,
         region_name=region_name,
         model_id=model_name,
     )
     return embeddings
-
 
 def load_documents(DATA_PATH):
     document_loader = PyPDFDirectoryLoader(DATA_PATH)
