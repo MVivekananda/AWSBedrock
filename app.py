@@ -22,8 +22,7 @@ if "messages" not in st.session_state:
 
 @st.cache_resource
 def get_embedding_function():
-    return BedrockEmbeddings(
-        credentials_profile_name=aws_profile_name,
+    return BedrockLLM(
         region_name=region_name,
         model_id=emb_model_name,
     )
